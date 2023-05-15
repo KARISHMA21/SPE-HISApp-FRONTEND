@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: his-ingress
+  labels:
+    name: his-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: myhis.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: his-frontend-service
+                port:
+                  number: 3085
+          - pathType: Prefix
+            path: "/his_end"
+            backend:
+              service:
+                name: his-backend-service
+                port:
+                  number: 8085

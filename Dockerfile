@@ -1,7 +1,11 @@
 FROM node:alpine
-WORKDIR /hisAapp
-COPY ./package.json /hisAapp
+ 
+WORKDIR /hisapp
+
+COPY ./ /hisapp/
+
 RUN npm install --legacy-peer-deps
-COPY . /hisAapp
-EXPOSE 3080
+
+COPY . /hisapp/
+
 CMD ["npm","start"]

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: his-frontend-configmap
+data:
+  REACT_APP_FRONTEND_URL: his-frontend-service
+  REACT_APP_BACKEND_URL: his-backend-service
